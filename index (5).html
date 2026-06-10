@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramazon Juraev | Information Security Engineer</title>
+  <meta name="description" content="Portfolio landing page for Ramazon Juraev - Information Security Engineer, SOC, SIEM, SOAR, WAF, Network Security, Linux, Docker and DevOps." />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0b1b2f;
+      --card: rgba(15, 34, 57, 0.76);
+      --card-border: rgba(125, 211, 252, 0.18);
+      --text: #e5f3ff;
+      --muted: #9fb3c8;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --danger: #fb7185;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(56, 189, 248, 0.22), transparent 30%),
+        radial-gradient(circle at 84% 8%, rgba(34, 197, 94, 0.14), transparent 28%),
+        linear-gradient(135deg, #05101e 0%, #081827 45%, #040b14 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 78%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, 0.78);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.3px; }
+    .brand-mark {
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border-radius: 14px; background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #03111f; box-shadow: 0 12px 32px rgba(56, 189, 248, 0.25);
+    }
+
+    .nav-right { display: flex; align-items: center; gap: 22px; }
+    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--text); }
+
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border: 1px solid rgba(125, 211, 252, 0.22);
+      background: rgba(15, 23, 42, 0.78);
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .lang-label { color: var(--muted); font-size: 12px; font-weight: 800; padding: 0 6px; letter-spacing: 0.08em; }
+    .lang-btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-weight: 900;
+      color: var(--text);
+      background: transparent;
+    }
+    .lang-btn.active { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #03111f; }
+
+    .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 44px; align-items: center; padding: 84px 0 54px; }
+    .eyebrow { display: inline-flex; gap: 8px; align-items: center; padding: 8px 12px; border: 1px solid rgba(56, 189, 248, 0.24); border-radius: 999px; background: rgba(56, 189, 248, 0.08); color: #b8ecff; font-size: 13px; margin-bottom: 20px; }
+    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.12); }
+    h1 { font-size: clamp(42px, 7vw, 76px); line-height: 0.95; margin: 0 0 24px; letter-spacing: -2.6px; }
+    .hero p { margin: 0 0 30px; max-width: 690px; color: var(--muted); font-size: 18px; line-height: 1.75; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 34px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 18px; border-radius: 14px; font-weight: 700; transition: transform 0.18s ease, border 0.18s ease, background 0.18s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #03111f; box-shadow: 0 18px 40px rgba(56, 189, 248, 0.18); }
+    .btn-secondary { border: 1px solid rgba(148, 163, 184, 0.24); background: rgba(15, 23, 42, 0.58); color: var(--text); }
+    .quick-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 670px; }
+    .stat { padding: 16px; border: 1px solid rgba(148, 163, 184, 0.16); border-radius: 18px; background: rgba(15, 34, 57, 0.54); }
+    .stat strong { display: block; font-size: 22px; margin-bottom: 4px; }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    .terminal-card { position: relative; border: 1px solid var(--card-border); border-radius: var(--radius); background: linear-gradient(180deg, rgba(15, 34, 57, 0.9), rgba(8, 20, 35, 0.84)); box-shadow: var(--shadow); overflow: hidden; }
+    .terminal-top { display: flex; align-items: center; gap: 8px; height: 48px; padding: 0 18px; border-bottom: 1px solid rgba(148, 163, 184, 0.14); background: rgba(2, 6, 23, 0.36); }
+    .dot { width: 11px; height: 11px; border-radius: 50%; background: var(--danger); }
+    .dot:nth-child(2) { background: #fbbf24; }
+    .dot:nth-child(3) { background: var(--accent-2); }
+    .terminal-body { padding: 24px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; color: #c4f1ff; font-size: 14px; line-height: 1.8; }
+    .terminal-body .muted { color: #7892a8; } .terminal-body .green { color: #86efac; } .terminal-body .blue { color: #7dd3fc; }
+
+    section { padding: 56px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
+    h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1; letter-spacing: -1.2px; margin: 0; }
+    .section-head p, .card p, .timeline-item p, .contact p { color: var(--muted); line-height: 1.65; }
+    .section-head p { max-width: 520px; margin: 0; }
+    .grid { display: grid; gap: 18px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .card { padding: 24px; border: 1px solid rgba(148, 163, 184, 0.16); border-radius: var(--radius); background: var(--card); box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18); }
+    .card h3 { margin: 0 0 12px; font-size: 19px; }
+    .card p { margin: 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .tag { padding: 8px 10px; border: 1px solid rgba(125, 211, 252, 0.16); border-radius: 999px; background: rgba(56, 189, 248, 0.07); color: #c4f1ff; font-size: 13px; }
+    .timeline { display: grid; gap: 16px; }
+    .timeline-item { padding: 24px; border: 1px solid rgba(148, 163, 184, 0.16); border-radius: var(--radius); background: var(--card); }
+    .timeline-meta { color: var(--accent); font-weight: 800; font-size: 13px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .timeline-item h3 { margin: 0 0 8px; font-size: 21px; }
+    .project-card { min-height: 230px; display: flex; flex-direction: column; justify-content: space-between; }
+    .contact { text-align: center; padding: 48px; border: 1px solid rgba(125, 211, 252, 0.18); border-radius: 32px; background: radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.18), transparent 34%), linear-gradient(135deg, rgba(15, 34, 57, 0.9), rgba(7, 17, 31, 0.9)); box-shadow: var(--shadow); }
+    .contact p { max-width: 680px; margin: 16px auto 26px; }
+    footer { padding: 30px 0 42px; color: var(--muted); text-align: center; font-size: 14px; }
+
+    @media (max-width: 900px) {
+      .hero, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .hero { padding-top: 56px; }
+      .section-head { align-items: start; flex-direction: column; }
+      .nav { align-items: flex-start; }
+      .nav-right { flex-direction: column; align-items: flex-end; gap: 12px; }
+      .nav-links { display: none; }
+      .quick-stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Ramazon Juraev home">
+        <span class="brand-mark">RJ</span>
+        <span>Ramazon Juraev</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about" data-i18n="nav_about">About</a>
+          <a href="#skills" data-i18n="nav_skills">Skills</a>
+          <a href="#experience" data-i18n="nav_experience">Experience</a>
+          <a href="#projects" data-i18n="nav_projects">Projects</a>
+          <a href="#contact" data-i18n="nav_contact">Contact</a>
+        </nav>
+        <div class="lang-switcher" aria-label="Language switcher">
+          <span class="lang-label">LANG</span>
+          <button class="lang-btn active" type="button" data-lang="en">EN</button>
+          <button class="lang-btn" type="button" data-lang="ru">RU</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div>
+        <div class="eyebrow"><span class="pulse"></span> <span data-i18n="eyebrow">Information Security Engineer</span></div>
+        <h1 data-i18n="hero_title">Keeping systems stable, secure and understandable.</h1>
+        <p data-i18n="hero_text">I like working with real infrastructure: investigating alerts, fixing network and Linux issues, connecting security tools together and making services run more reliably. My main areas are SOC/SIEM/SOAR, WAF, Cisco routing, Linux, Docker and production troubleshooting.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:ramazond14@icloud.com" data-i18n="contact_me">Contact me</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/ramazon-juraev-7458b5314/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn btn-secondary" href="https://doc004.github.io/Portfolio-v-1.0/" target="_blank" rel="noreferrer">Portfolio</a>
+        </div>
+        <div class="quick-stats">
+          <div class="stat"><strong>1+ yr</strong><span data-i18n="stat_1">Banking IT and security experience</span></div>
+          <div class="stat"><strong>SOC</strong><span>SIEM, SOAR, TheHive, Wazuh</span></div>
+          <div class="stat"><strong>Network</strong><span>Cisco, BGP, NAT, VPN, VRF</span></div>
+        </div>
+      </div>
+
+      <aside class="terminal-card" aria-label="Technical profile summary">
+        <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="terminal-body">
+          <div><span class="muted">$</span> whoami</div>
+          <div class="green">Ramazon Juraev</div><br />
+          <div><span class="muted">$</span> role --current</div>
+          <div class="blue" data-i18n="terminal_role">Junior Information Security Specialist</div><br />
+          <div><span class="muted">$</span> stack --focus</div>
+          <div>SOAR · SIEM · WAF · Cisco Secure Firewall · Linux · Docker · K8s · ELK · Grafana</div><br />
+          <div><span class="muted">$</span> location</div>
+          <div data-i18n="location">Dushanbe, Tajikistan</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about"><div class="container">
+      <div class="section-head"><h2 data-i18n="about_title">About me</h2><p data-i18n="about_subtitle">I am a hands-on engineer who enjoys solving practical infrastructure and security problems, especially when systems are already running in production and need a clear, reliable fix.</p></div>
+      <div class="grid grid-3">
+        <article class="card"><h3 data-i18n="about_card1_title">Security Operations</h3><p data-i18n="about_card1_text">I work with alerts, cases and integrations so security events become easier to understand, enrich and investigate instead of staying as raw logs.</p></article>
+        <article class="card"><h3 data-i18n="about_card2_title">Network Security</h3><p data-i18n="about_card2_text">I help find where traffic breaks: routing, NAT, BGP, VPN, VRF, firewall rules or misconfigured paths between systems.</p></article>
+        <article class="card"><h3 data-i18n="about_card3_title">Infrastructure</h3><p data-i18n="about_card3_text">I deploy and support Linux services, Docker containers, reverse proxies and monitoring agents with a focus on stability and simple operations.</p></article>
+      </div>
+    </div></section>
+
+    <section id="skills"><div class="container">
+      <div class="section-head"><h2 data-i18n="skills_title">Skills</h2><p data-i18n="skills_subtitle">A practical stack I use for SOC, security, Linux, networks, monitoring and web/QA tasks.</p></div>
+      <div class="grid grid-2">
+        <article class="card"><h3 data-i18n="skill_soc">Cybersecurity & SOC</h3><div class="tags"><span class="tag">SOAR</span><span class="tag">SIEM</span><span class="tag">WAF</span><span class="tag">Cisco Secure Firewall</span><span class="tag">Cybersecurity Basics</span><span class="tag">TheHive</span><span class="tag">Cortex</span><span class="tag">MISP</span><span class="tag">Wazuh</span><span class="tag" data-i18n="tag_alert">Alert enrichment</span><span class="tag" data-i18n="tag_ir">Incident response</span></div></article>
+        <article class="card"><h3 data-i18n="skill_net">Network & Firewall</h3><div class="tags"><span class="tag" data-i18n="tag_net_admin">Network administration</span><span class="tag">Cisco</span><span class="tag">BGP</span><span class="tag">AS-PATH</span><span class="tag">TCP/IP</span><span class="tag">Firewall</span><span class="tag">NAT</span><span class="tag">VRF</span><span class="tag">VPN</span><span class="tag">FTD/FMC</span><span class="tag">HAProxy</span><span class="tag" data-i18n="tag_traffic">Traffic analysis</span></div></article>
+        <article class="card"><h3 data-i18n="skill_devops">DevOps & Systems</h3><div class="tags"><span class="tag">Linux</span><span class="tag">Ubuntu</span><span class="tag">Debian</span><span class="tag">Kali Linux</span><span class="tag" data-i18n="tag_linux_admin">Linux system administration</span><span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">Kubernetes (K8s)</span><span class="tag">Flannel</span><span class="tag">Bash Scripting</span><span class="tag">GitLab CI/CD</span><span class="tag" data-i18n="tag_learning">learning</span></div></article>
+        <article class="card"><h3 data-i18n="skill_monitoring">Monitoring & Logs</h3><div class="tags"><span class="tag">Log Management</span><span class="tag">System Monitoring</span><span class="tag">ELK Stack</span><span class="tag">Elasticsearch</span><span class="tag">Logstash</span><span class="tag">Kibana</span><span class="tag">Grafana</span><span class="tag">Zabbix Agent</span><span class="tag">Health checks</span></div></article>
+        <article class="card"><h3 data-i18n="skill_infra">Virtualization & Services</h3><div class="tags"><span class="tag">VMware</span><span class="tag">VirtualBox</span><span class="tag">Jitsi Meet</span><span class="tag">Reverse Proxy</span><span class="tag">TLS</span><span class="tag">API endpoints</span><span class="tag">Production troubleshooting</span></div></article>
+        <article class="card"><h3 data-i18n="skill_web">Web & QA background</h3><div class="tags"><span class="tag">HTML</span><span class="tag">HTML5</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">SQL</span><span class="tag">Front-End</span><span class="tag">UI Development</span><span class="tag">Web Applications</span><span class="tag">Quality Assurance</span><span class="tag">Manual Testing</span><span class="tag">Test Management</span><span class="tag">API testing</span></div></article>
+      </div>
+    </div></section>
+
+    <section id="experience"><div class="container">
+      <div class="section-head"><h2 data-i18n="experience_title">Experience</h2><p data-i18n="experience_subtitle">My path in banking IT started with system administration, continued through DevOps tasks and moved into information security.</p></div>
+      <div class="timeline">
+        <article class="timeline-item"><div class="timeline-meta" data-i18n="exp1_date">May 2026 - Present</div><h3 data-i18n="exp1_title">Junior Information Security Specialist · International Bank of Tajikistan</h3><p data-i18n="exp1_text">I work with monitoring, security tools and SOC processes to help detect issues, analyze alerts and improve the protection of banking infrastructure.</p></article>
+        <article class="timeline-item"><div class="timeline-meta" data-i18n="exp2_date">Apr 2025 - Jun 2026</div><h3 data-i18n="exp2_title">DevOps Junior · International Bank of Tajikistan</h3><p data-i18n="exp2_text">Worked on Linux services, Docker deployments, reverse proxy configuration, monitoring and day-to-day infrastructure troubleshooting.</p></article>
+        <article class="timeline-item"><div class="timeline-meta" data-i18n="exp3_date">Dec 2024 - Apr 2025</div><h3 data-i18n="exp3_title">System Administrator Intern · International Bank of Tajikistan</h3><p data-i18n="exp3_text">Supported servers and daily IT operations, learned how production infrastructure works and built a strong base in system administration.</p></article>
+      </div>
+    </div></section>
+
+    <section id="projects"><div class="container">
+      <div class="section-head"><h2 data-i18n="projects_title">Selected work</h2><p data-i18n="projects_subtitle">A few examples of the practical tasks I have worked on and the areas where I have real hands-on experience.</p></div>
+      <div class="grid grid-3">
+        <article class="card project-card"><div><h3 data-i18n="proj1_title">SOC platform integration</h3><p data-i18n="proj1_text">Connected Wazuh, TheHive, Cortex and MISP so alerts can turn into cases, get enriched with context and become easier to investigate.</p></div><div class="tags"><span class="tag">Wazuh</span><span class="tag">TheHive</span><span class="tag">Cortex</span><span class="tag">MISP</span></div></article>
+        <article class="card project-card"><div><h3 data-i18n="proj2_title">Firewall migration</h3><p data-i18n="proj2_text">Worked with Cisco Firepower/FMC/FTD environments, including migration tasks and configuration based on best practices.</p></div><div class="tags"><span class="tag">Cisco FTD</span><span class="tag">FMC</span><span class="tag">Firewall</span></div></article>
+        <article class="card project-card"><div><h3 data-i18n="proj3_title">Routing and NAT troubleshooting</h3><p data-i18n="proj3_text">Investigated real traffic issues by checking BGP paths, AS prepending, traceroute output, NAT rules, VRF routing and forwarding behavior.</p></div><div class="tags"><span class="tag">BGP</span><span class="tag">NAT</span><span class="tag">VRF</span><span class="tag">Cisco</span></div></article>
+        <article class="card project-card"><div><h3 data-i18n="proj4_title">HAProxy reverse proxy</h3><p data-i18n="proj4_text">Configured and troubleshot HAProxy for internal services and API endpoints, including HTTPS and backend connectivity issues.</p></div><div class="tags"><span class="tag">HAProxy</span><span class="tag">TLS</span><span class="tag">API</span></div></article>
+        <article class="card project-card"><div><h3 data-i18n="proj5_title">Jitsi Meet deployment</h3><p data-i18n="proj5_text">Deployed and configured Jitsi Meet with Docker components and authentication-related settings.</p></div><div class="tags"><span class="tag">Jitsi</span><span class="tag">Docker</span><span class="tag">Linux</span></div></article>
+        <article class="card project-card"><div><h3 data-i18n="proj6_title">Monitoring and agents</h3><p data-i18n="proj6_text">Installed and fixed monitoring agents and health checks so production services are easier to observe.</p></div><div class="tags"><span class="tag">Zabbix</span><span class="tag">Linux</span><span class="tag">Monitoring</span></div></article>
+      </div>
+    </div></section>
+
+    <section id="education"><div class="container">
+      <div class="section-head"><h2 data-i18n="education_title">Education</h2><p data-i18n="education_subtitle">My technical education and training background.</p></div>
+      <div class="grid grid-2">
+        <article class="card"><h3 data-i18n="edu1">Technological University of Tajikistan</h3><p>2022 - 2026</p></article>
+        <article class="card"><h3>Green Train Center</h3><p data-i18n="edu_green">Cisco Secure Firewall · Nov 2025 </p></article>
+        <article class="card"><h3>Humo Lab</h3><p>JavaScript & TypeScript · 2024</p></article>
+        <article class="card"><h3>Alif Academy</h3><p>Quality Assurance · 2024</p></article>
+        <article class="card"><h3>Web Academy</h3><p>Front-End · 2022</p></article>
+      </div>
+    </div></section>
+
+    <section id="contact"><div class="container">
+      <div class="contact">
+        <h2 data-i18n="contact_title">Let's connect</h2>
+        <p data-i18n="contact_text">Open to security engineering tasks, SOC/SIEM/SOAR integrations, infrastructure troubleshooting and network security projects.</p>
+        <div class="actions" style="justify-content:center; margin-bottom:0;">
+          <a class="btn btn-primary" href="mailto:ramazond14@icloud.com">ramazond14@icloud.com</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/ramazon-juraev-7458b5314/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn btn-secondary" href="https://doc004.github.io/Portfolio-v-1.0/" target="_blank" rel="noreferrer">Portfolio</a>
+        </div>
+      </div>
+    </div></section>
+  </main>
+
+  <footer><div class="container"><span data-i18n="footer_before">©</span> <span id="year"></span> Ramazon Juraev. <span data-i18n="footer_text"></span></div></footer>
+
+  <script>
+    const translations = {
+      en: {
+        nav_about: 'About', nav_skills: 'Skills', nav_experience: 'Experience', nav_projects: 'Projects', nav_contact: 'Contact',
+        eyebrow: 'Information Security Engineer', hero_title: 'Keeping systems stable, secure and understandable.',
+        hero_text: 'I like working with real infrastructure: investigating alerts, fixing network and Linux issues, connecting security tools together and making services run more reliably. My main areas are SOC/SIEM/SOAR, WAF, Cisco routing, Linux, Docker and production troubleshooting.',
+        contact_me: 'Contact me', stat_1: 'Banking IT and security experience', terminal_role: 'Junior Information Security Specialist', location: 'Dushanbe, Tajikistan',
+        about_title: 'About me', about_subtitle: 'I am a hands-on engineer who enjoys solving practical infrastructure and security problems, especially when systems are already running in production and need a clear, reliable fix.',
+        about_card1_title: 'Security Operations', about_card1_text: 'I work with alerts, cases and integrations so security events become easier to understand, enrich and investigate instead of staying as raw logs.',
+        about_card2_title: 'Network Security', about_card2_text: 'I help find where traffic breaks: routing, NAT, BGP, VPN, VRF, firewall rules or misconfigured paths between systems.',
+        about_card3_title: 'Infrastructure', about_card3_text: 'I deploy and support Linux services, Docker containers, reverse proxies and monitoring agents with a focus on stability and simple operations.',
+        skills_title: 'Skills', skills_subtitle: 'A practical stack I use for SOC, security, Linux, networks, monitoring and web/QA tasks.', skill_soc: 'Cybersecurity & SOC', skill_net: 'Network & Firewall', skill_devops: 'DevOps & Systems', skill_monitoring: 'Monitoring & Logs', skill_infra: 'Virtualization & Services', skill_web: 'Web & QA background', tag_alert: 'Alert enrichment', tag_ir: 'Incident response', tag_traffic: 'Traffic analysis', tag_net_admin: 'Network administration', tag_linux_admin: 'Linux system administration', tag_learning: 'learning',
+        experience_title: 'Experience', experience_subtitle: 'My path in banking IT started with system administration, continued through DevOps tasks and moved into information security.',
+        exp1_date: 'May 2026 - Present', exp1_title: 'Junior Information Security Specialist · International Bank of Tajikistan', exp1_text: 'I work with monitoring, security tools and SOC processes to help detect issues, analyze alerts and improve the protection of banking infrastructure.',
+        exp2_date: 'Apr 2025 - Jun 2026', exp2_title: 'DevOps Junior · International Bank of Tajikistan', exp2_text: 'Worked on Linux services, Docker deployments, reverse proxy configuration, monitoring and day-to-day infrastructure troubleshooting.',
+        exp3_date: 'Dec 2024 - Apr 2025', exp3_title: 'System Administrator Intern · International Bank of Tajikistan', exp3_text: 'Supported servers and daily IT operations, learned how production infrastructure works and built a strong base in system administration.',
+        projects_title: 'Selected work', projects_subtitle: 'A few examples of the practical tasks I have worked on and the areas where I have real hands-on experience.',
+        proj1_title: 'SOC platform integration', proj1_text: 'Connected Wazuh, TheHive, Cortex and MISP so alerts can turn into cases, get enriched with context and become easier to investigate.',
+        proj2_title: 'Firewall migration', proj2_text: 'Worked with Cisco Firepower/FMC/FTD environments, including migration tasks and configuration based on best practices.',
+        proj3_title: 'Routing and NAT troubleshooting', proj3_text: 'Investigated real traffic issues by checking BGP paths, AS prepending, traceroute output, NAT rules, VRF routing and forwarding behavior.',
+        proj4_title: 'HAProxy reverse proxy', proj4_text: 'Configured and troubleshot HAProxy for internal services and API endpoints, including HTTPS and backend connectivity issues.',
+        proj5_title: 'Jitsi Meet deployment', proj5_text: 'Deployed and configured Jitsi Meet with Docker components and authentication-related settings.',
+        proj6_title: 'Monitoring and agents', proj6_text: 'Installed and fixed monitoring agents and health checks so production services are easier to observe.',
+        education_title: 'Education', education_subtitle: 'My technical education and training background.', edu1: 'Technological University of Tajikistan', edu_green: 'Cisco Secure Firewall · Nov 2025 ',
+        contact_title: "Let's connect", contact_text: 'Open to security engineering tasks, SOC/SIEM/SOAR integrations, infrastructure troubleshooting and network security projects.', footer_before: '©', footer_text: ''
+      },
+      ru: {
+        nav_about: 'Обо мне', nav_skills: 'Навыки', nav_experience: 'Опыт', nav_projects: 'Проекты', nav_contact: 'Контакты',
+        eyebrow: 'Инженер информационной безопасности', hero_title: 'Помогаю делать инфраструктуру безопаснее, стабильнее и понятнее.',
+        hero_text: 'Мне нравится работать с реальной инфраструктурой: разбирать алерты, искать причины сетевых и Linux-проблем, связывать security-инструменты между собой и доводить сервисы до стабильной работы. Основные направления: SOC/SIEM/SOAR, WAF, Cisco routing, Linux, Docker и troubleshooting в production.',
+        contact_me: 'Связаться со мной', stat_1: 'Опыт в банковской IT и безопасности', terminal_role: 'Младший специалист информационной безопасности', location: 'Душанбе, Таджикистан',
+        about_title: 'Обо мне', about_subtitle: 'Я hands-on инженер: люблю разбираться в практических проблемах инфраструктуры и безопасности, особенно когда сервисы уже работают в production и нужно быстро найти понятное решение.',
+        about_card1_title: 'Security Operations', about_card1_text: 'Работаю с алертами, кейсами и интеграциями, чтобы события безопасности были не просто логами, а понятными инцидентами с контекстом для анализа.',
+        about_card2_title: 'Сетевая безопасность', about_card2_text: 'Помогаю находить, где ломается трафик: routing, NAT, BGP, VPN, VRF, firewall rules или неправильный путь между системами.',
+        about_card3_title: 'Инфраструктура', about_card3_text: 'Разворачиваю и поддерживаю Linux-сервисы, Docker-контейнеры, reverse proxy и monitoring agents с фокусом на стабильность и простую эксплуатацию.',
+        skills_title: 'Навыки', skills_subtitle: 'Практический стек, который я использую в SOC, безопасности, Linux, сетях, мониторинге и web/QA-задачах.', skill_soc: 'Кибербезопасность и SOC', skill_net: 'Сети и Firewall', skill_devops: 'DevOps и системы', skill_monitoring: 'Мониторинг и логи', skill_infra: 'Виртуализация и сервисы', skill_web: 'Web и QA база', tag_alert: 'Обогащение алертов', tag_ir: 'Реагирование на инциденты', tag_traffic: 'Анализ трафика', tag_net_admin: 'Сетевое администрирование', tag_linux_admin: 'Системное администрирование Linux', tag_learning: 'в процессе изучения',
+        experience_title: 'Опыт работы', experience_subtitle: 'Мой путь в банковской IT начался с системного администрирования, продолжился DevOps-задачами и перешёл в информационную безопасность.',
+        exp1_date: 'Май 2026 - настоящее время', exp1_title: 'Младший специалист информационной безопасности · International Bank of Tajikistan', exp1_text: 'Работаю с мониторингом, security-инструментами и SOC-процессами: помогаю находить проблемы, анализировать алерты и усиливать защиту банковской инфраструктуры.',
+        exp2_date: 'Апрель 2025 - июнь 2026', exp2_title: 'DevOps Junior · International Bank of Tajikistan', exp2_text: 'Работал с Linux-сервисами, Docker-развертываниями, reverse proxy, мониторингом и ежедневным troubleshooting инфраструктуры.',
+        exp3_date: 'Декабрь 2024 - апрель 2025', exp3_title: 'Стажер системный администратор · International Bank of Tajikistan', exp3_text: 'Поддерживал серверы и ежедневные IT-задачи, разбирался с проблемами и получил хорошую базу по production-инфраструктуре.',
+        projects_title: 'Избранные работы', projects_subtitle: 'Несколько примеров задач, с которыми я работал на практике, и направлений, где у меня есть реальный hands-on опыт.',
+        proj1_title: 'Интеграция SOC-платформы', proj1_text: 'Связывал Wazuh, TheHive, Cortex и MISP, чтобы алерты превращались в кейсы, обогащались контекстом и их было проще расследовать.',
+        proj2_title: 'Миграция Firewall', proj2_text: 'Работал со средами Cisco Firepower/FMC/FTD, включая миграцию и настройки по best practices.',
+        proj3_title: 'Troubleshooting Routing и NAT', proj3_text: 'Разбирал реальные проблемы с трафиком: проверял BGP paths, AS prepending, traceroute, NAT rules, VRF routing и forwarding behavior.',
+        proj4_title: 'HAProxy reverse proxy', proj4_text: 'Настраивал и отлаживал HAProxy для внутренних сервисов и API endpoints, включая HTTPS и подключение к backend-сервисам.',
+        proj5_title: 'Развертывание Jitsi Meet', proj5_text: 'Разворачивал и настраивал Jitsi Meet с Docker-компонентами и параметрами аутентификации.',
+        proj6_title: 'Monitoring и agents', proj6_text: 'Устанавливал и исправлял monitoring agents и health checks, чтобы production-сервисы было проще наблюдать.',
+        education_title: 'Образование', education_subtitle: 'Моё техническое образование и учебные программы.', edu1: 'Технологический университет Таджикистана', edu_green: 'Cisco Secure Firewall · ноябрь 2025 ',
+        contact_title: 'Свяжемся', contact_text: 'Открыт к задачам по security engineering, SOC/SIEM/SOAR-интеграциям, troubleshooting инфраструктуры и сетевой безопасности.', footer_before: '©', footer_text: ''
+      }
+    };
+
+    function setLanguage(lang) {
+      const selected = translations[lang] ? lang : 'en';
+      document.documentElement.lang = selected;
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[selected][key]) element.textContent = translations[selected][key];
+      });
+      document.querySelectorAll('.lang-btn').forEach((button) => {
+        button.classList.toggle('active', button.dataset.lang === selected);
+      });
+      try { localStorage.setItem('portfolioLang', selected); } catch (error) {}
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.lang-btn').forEach((button) => {
+      button.addEventListener('click', () => setLanguage(button.dataset.lang));
+    });
+
+    let savedLanguage = 'en';
+    try { savedLanguage = localStorage.getItem('portfolioLang') || 'en'; } catch (error) {}
+    setLanguage(savedLanguage);
+  </script>
+</body>
+</html>
